@@ -11,6 +11,12 @@ public class UserService {
         this.userRepos = new UserRepo();
     }
     public void createUser(int id, String name, String emailid){
+        if (name == null || name.isEmpty()){
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        if (emailid == null || !emailid.contains("@")){
+            throw new IllegalArgumentException("Invalid email id");
+        }
         User user = new User(id,name,emailid);
         userRepos.Save(user);
     }
@@ -24,6 +30,7 @@ public class UserService {
         return userRepos.deletebyid(id);
     }
     public boolean updateuser(int id, String name, String emailid){
+
         User existinguser = userRepos.findbyId(id);
         if (existinguser != null){
             existinguser.setname(name);
