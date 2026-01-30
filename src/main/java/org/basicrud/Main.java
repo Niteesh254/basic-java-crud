@@ -28,7 +28,7 @@ public class Main {
 
 
 
-        boolean updated1 = userService.updateuser(3, "Rahul K","rkpenta@gmail.com");
+        boolean updated1 = userService.updateuser(3, "Rahul K","rkpentaa@gmail.com");
 
         for (User u: userService.getAllUsersfrom()){
             System.out.println(u);
